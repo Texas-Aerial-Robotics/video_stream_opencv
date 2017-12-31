@@ -4,7 +4,7 @@ project(video_stream_opencv)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  cv_bridge
+  cv3_bridge
   image_transport
   camera_info_manager
   sensor_msgs
