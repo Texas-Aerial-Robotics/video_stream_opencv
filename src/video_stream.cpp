@@ -42,6 +42,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <sstream>
 #include <boost/assign/list_of.hpp>
+#include <iostream>
 
 // Based on the ros tutorial on transforming opencv images to Image messages
 
@@ -95,7 +96,12 @@ int main(int argc, char** argv)
         }
         else{
             ROS_INFO_STREAM("Getting video from provider: " << video_stream_provider);
+            
+            std::cout << "Using compressed " << std::endl;
             cap.open(video_stream_provider);
+            cap.set(CV_CAP_PROP_FOURCC ,CV_FOURCC('M', 'J', 'P', 'G') );
+            cap.set(CV_CAP_PROP_FRAME_WIDTH ,640);
+            cap.set(CV_CAP_PROP_FRAME_HEIGHT ,480);
         }
     }
     else{
