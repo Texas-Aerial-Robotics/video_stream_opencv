@@ -26,9 +26,33 @@
    </include>
    <include file="$(find video_stream_opencv)/launch/camera.launch" >
    		<!-- node name and ros graph name -->
-	  	<arg name="camera_name" value="webcam2" />
+	  	<arg name="camera_name" value="webcam5" />
 	  	<!-- means video device 0, /dev/video0 -->
 	  	<arg name="video_stream_provider" value="/dev/v4l/by-id/usb-046d_0825_ABC92680-video-index0" />
+	  	<!-- throttling the querying of frames to -->
+	  	<arg name="fps" value="15" />
+	  	<!-- setting frame_id -->
+	  	<arg name="frame_id" value="camera_link5" />
+	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
+	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
+	  	<arg name="camera_info_url" value="" />
+	  	<!-- flip the image horizontally (mirror it) -->
+	  	<arg name="flip_horizontal" value="false" />
+	  	<!-- flip the image vertically -->
+	  	<arg name="flip_vertical" value="false" />
+		<!-- force width and height, 0 means no forcing -->
+	    <!-- 
+	    <arg name="width" value="0"/>
+	    <arg name="height" value="0"/>
+		-->
+	  	<!-- visualize on an image_view window the stream generated -->
+	  	<arg name="visualize" value="false" />
+   </include>
+   <include file="$(find video_stream_opencv)/launch/camera.launch" >
+   		<!-- node name and ros graph name -->
+	  	<arg name="camera_name" value="webcam2" />
+	  	<!-- means video device 0, /dev/video0 -->
+	  	<arg name="video_stream_provider" value="/dev/v4l/by-id/usb-046d_0825_AF6F2680-video-index0" />
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="15" />
 	  	<!-- setting frame_id -->
@@ -52,35 +76,11 @@
    		<!-- node name and ros graph name -->
 	  	<arg name="camera_name" value="webcam4" />
 	  	<!-- means video device 0, /dev/video0 -->
-	  	<arg name="video_stream_provider" value="/dev/v4l/by-id/usb-046d_0825_AF6F2680-video-index0" />
-	  	<!-- throttling the querying of frames to -->
-	  	<arg name="fps" value="15" />
-	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="camera_link4" />
-	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
-	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
-	  	<arg name="camera_info_url" value="" />
-	  	<!-- flip the image horizontally (mirror it) -->
-	  	<arg name="flip_horizontal" value="false" />
-	  	<!-- flip the image vertically -->
-	  	<arg name="flip_vertical" value="false" />
-		<!-- force width and height, 0 means no forcing -->
-	    <!-- 
-	    <arg name="width" value="0"/>
-	    <arg name="height" value="0"/>
-		-->
-	  	<!-- visualize on an image_view window the stream generated -->
-	  	<arg name="visualize" value="false" />
-   </include>
-   <include file="$(find video_stream_opencv)/launch/camera.launch" >
-   		<!-- node name and ros graph name -->
-	  	<arg name="camera_name" value="webcam5" />
-	  	<!-- means video device 0, /dev/video0 -->
 	  	<arg name="video_stream_provider" value="/dev/v4l/by-id/usb-046d_0825_B4CF2680-video-index0" />
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="15" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="camera_link5" />
+	  	<arg name="frame_id" value="camera_link4" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="" />
